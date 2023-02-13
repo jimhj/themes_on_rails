@@ -22,7 +22,7 @@ module ThemesOnRails
       app.config.assets.precompile << Proc.new do |path, fn|
         if fn =~ /app\/themes/
           basename = path.split('/').last
-          if !%w(.js .css).include?(File.extname(path))
+          if !%w(.js .css .scss).include?(File.extname(path))
             true
           elsif path =~ /^[^\/]+\/all((_|-).+)?\.(js|css)$/
             # 1. don't allow nested: theme_a/responsive/all.js
